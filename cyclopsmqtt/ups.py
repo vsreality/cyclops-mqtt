@@ -2,7 +2,7 @@
 import paho.mqtt.client as mqtt
 import time
 from pyopenups import *
-import options
+from options import broker
 
 # Variables
 publish_interval = 1 # 1 sec
@@ -59,9 +59,9 @@ if __name__ == "__main__":
         client = mqtt.Client()
         client.on_connect = on_connect
         client.on_message = on_message
-        client.username_pw_set("milk3dfx","Ss198811")
+        client.username_pw_set(broker["username"], broker["password"])
 
-        client.connect(options.broker["host"], 8883, 60)
+        client.connect(broker["host"], broker["port"], 60)
 
         # Start publishing
         client.loop_start()
