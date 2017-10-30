@@ -1,0 +1,5 @@
+broker = {
+    "host" : "",
+    "username" : "",
+    "password" : ""
+}
